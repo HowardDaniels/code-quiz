@@ -3,6 +3,7 @@
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
             <link href="https://fonts.googleapis.com/css?family=Cedarville+Cursive&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     </head>
     <body>
         <div class="title">Holly Jolly Javascript</div>
@@ -14,10 +15,21 @@
 
                 </div>
                 <div class="col-md-4">
-                    <div class="timer">Time: </div>
+                    <div class="timer">Time: 
+                              <div class="time" id="time">
+                                <div id="minutes"></div><div id="seconds"></div>
+                              </div>
+                              </div>
+                    </div>
                 </div>
             </div>
-
-            <script src="assets/js/script.js"></script>
+            <script>
+            $(".start-button").click(function() {
+                var fiveMinutes = 60 * 5,
+                    display = document.querySelector('#time');
+                startTimer(fiveMinutes, display);
+            });
+            </script>
+            <script src="assets/javascript/questions.js"></script>
     </body>
 </html>
