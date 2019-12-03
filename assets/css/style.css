@@ -1,3 +1,4 @@
-.start-page{
+body{
     background-image: url("../images/beach.jpg");
+    background-size: cover;
 }
