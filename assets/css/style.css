@@ -2,3 +2,12 @@ body{
     background-image: url("../images/christmas_tree.jpg");
     background-size: cover;
 }
+
+.start-button{
+    height: 50px;
+    width: 50%;
+    margin-left: 300px;
+    margin-top: 300px;
+    background-color: red;
+    color: white;
+}
