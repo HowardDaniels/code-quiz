@@ -20,6 +20,22 @@ body{
     width: 50%;
     margin-left: 300px;
     margin-top: 300px;
+    margin-bottom: 100px;
     background-color: red;
     color: white;
+}
+
+#high-scores{
+    background-color: green;
+    color: red;
+    border: 2px solid red;
+    margin-left: 100px;
+}
+
+.timer{
+    background-color: green;
+    color: red;
+    border: 2px solid red;
+    margin-left: 100px;
+    padding: 5px;
 }
