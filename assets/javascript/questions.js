@@ -14,3 +14,9 @@ function startTimer(duration, display) {
         }
     }, 1000);
 }
+
+$(".start-button").click(function() {
+    var fiveMinutes = 60 * 5,
+        display = document.querySelector('#time');
+    startTimer(fiveMinutes, display);
+});
