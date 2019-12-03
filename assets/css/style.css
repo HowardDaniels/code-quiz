@@ -3,6 +3,18 @@ body{
     background-size: cover;
 }
 
+.title{
+    height: 100px;
+    width: 50%;
+    margin-left: 300px;
+    background-color: white;
+    color: gold;
+    text-align: center;
+    font-family: 'Cedarville Cursive', cursive;
+    font-size: 48px;
+    border: 2px solid gold;
+}
+
 .start-button{
     height: 50px;
     width: 50%;
