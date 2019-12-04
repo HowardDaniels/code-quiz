@@ -92,8 +92,13 @@ $(".start-button").click(function() {
     $("#letter_b").text(questions[0].choices[1]);
     $("#letter_c").text(questions[0].choices[2]);
     $("#letter_d").text(questions[0].choices[3]);
-    if
-
+    document.getElementById("#submit").addEventListener("click", function(){
+        if (input = questions[0].answer){
+            alert("That's correct!");
+            count += 4;
+            localStorage.setItem("count", count);
+            score.textContent = count;
+        }
     })
 });
   /*  $("#question").html("1. What goes on the end of every statement in JavaScript?");
