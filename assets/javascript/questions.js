@@ -48,38 +48,6 @@ $(".start-button").click(function() {
         count += 4;
         localStorage.setItem("count", count);
         score.textContent = count;
-
-        $("#question").html("2. What does '==' mean in JavaScript?");
-        $("#letter_a").html("sets a variable");
-        $("#letter_b").html("strictly equal (value and type the same)");
-        $("#letter_c").html("equal in value but not necessarily in type");
-        $("#letter_d").html("comment");
-        document.getElementById("ornament_c").removeEventListener("click");
-        document.getElementById("ornament_a").addEventListener("click", function(){
-            alert("That's not correct. Try again.");
-            count -= 1;
-            localStorage.setItem("count", count);
-            score.textContent = count;
-          });
-          document.getElementById("ornament_b").addEventListener("click", function(){
-            alert("That's not correct. Try again.");
-            count -= 1;
-            localStorage.setItem("count", count);
-            score.textContent = count;
-          });
-          document.getElementById("ornament_c").addEventListener("click", function(){
-            alert("That's correct!");
-            count += 4;
-            localStorage.setItem("count", count);
-            score.textContent = count;   
-          });
-          document.getElementById("ornament_d").addEventListener("click", function(){
-            alert("That's not correct. Try again.");
-            count -= 1;
-            localStorage.setItem("count", count);
-            score.textContent = count;
-          });
-
       });
       document.getElementById("ornament_d").addEventListener("click", function(){
         alert("That's not correct. Try again.");
@@ -87,4 +55,88 @@ $(".start-button").click(function() {
         localStorage.setItem("count", count);
         score.textContent = count;
       });
-});
+    });
+/*
+function question2(){
+    $("#question").html("2. What does '==' mean in JavaScript?");
+    $("#letter_a").html("sets a variable");
+    $("#letter_b").html("strictly equal (value and type the same)");
+    $("#letter_c").html("equal in value but not necessarily in type");
+    $("#letter_d").html("comment");
+    document.getElementById("ornament_a").addEventListener("click", function(){
+        alert("That's not correct. Try again.");
+        count -= 1;
+        localStorage.setItem("count", count);
+        score.textContent = count;
+      });
+      document.getElementById("ornament_b").addEventListener("click", function(){
+        alert("That's not correct. Try again.");
+        count -= 1;
+        localStorage.setItem("count", count);
+        score.textContent = count;
+      });
+      document.getElementById("ornament_c").addEventListener("click", function(){
+          alert("That's correct!");
+          count += 4;
+          localStorage.setItem("count", count);
+          score.textContent = count;
+          question3();
+          document.getElementById("ornament_c").removeEventListener("click", function(){
+            alert("That's correct!");
+            count += 4;
+            localStorage.setItem("count", count);
+            score.textContent = count;
+        });
+      });
+      document.getElementById("ornament_d").addEventListener("click", function(){
+          alert("That's not correct. Try again.");
+          count -= 1;
+          localStorage.setItem("count", count);
+          score.textContent = count;
+      });
+    }
+
+function question3(){
+ $("#question").html("3. What does 'console.log()' do in JavaScript?");
+    $("#letter_a").html("calls a function");
+    $("#letter_b").html("displays a value in the console");
+    $("#letter_c").html("provides the logarithm of a numeric value");
+    $("#letter_d").html("converts a statement to a string");
+    document.getElementById("ornament_a").addEventListener("click", function(){
+        alert("That's not correct. Try again.");
+        count -= 1;
+        localStorage.setItem("count", count);
+        score.textContent = count;
+      });
+      document.getElementById("ornament_b").removeEventListener("click", function(){
+            alert("That's not correct. Try again.");
+            count -= 1;
+            localStorage.setItem("count", count);
+            score.textContent = count;
+      });
+      document.getElementById("ornament_b").addEventListener("click", function(){
+        alert("That's correct!");
+        count += 4;
+        localStorage.setItem("count", count);
+        score.textContent = count;
+      });
+      document.getElementById("ornament_c").addEventListener("click", function(){
+        alert("That's not correct. Try again.");
+        count -= 1;
+        localStorage.setItem("count", count);
+        score.textContent = count;   
+      });
+      document.getElementById("ornament_d").addEventListener("click", function(){
+        alert("That's not correct. Try again.");
+        count -= 1;
+        localStorage.setItem("count", count);
+        score.textContent = count;
+      });
+
+      document.getElementById("ornament_d").addEventListener("click", function(){
+        alert("That's not correct. Try again.");
+        count -= 1;
+        localStorage.setItem("count", count);
+        score.textContent = count;
+      });
+    } */
