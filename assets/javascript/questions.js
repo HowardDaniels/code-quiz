@@ -1,4 +1,7 @@
 var score = document.querySelector("#score");
+var count = localStorage.getItem("count");
+count = 0;
+score.textContent = count;
 
 function startTimer(duration, display) {
     var timer = duration, minutes, seconds;
@@ -23,15 +26,37 @@ $(".start-button").click(function() {
     startTimer(fiveMinutes, display);
     document.getElementById("start-button").style.visibility = "hidden";
     document.getElementById("question").append("1. What goes on the end of every statement in JavaScript?");
-    document.getElementById("ornament_a").append("/");
-    document.getElementById("ornament_b").append(".");
-    document.getElementById("ornament_c").append(";");
-    document.getElementById("ornament_d").append(":");
-    $("ornament_a").click(function() {
+    document.getElementById("letter_a").append("/");
+    document.getElementById("letter_b").append(".");
+    document.getElementById("letter_c").append(";");
+    document.getElementById("letter_d").append(":");
+    document.getElementById("ornament_a").addEventListener("click", function(){
         alert("That's not correct. Try again.");
-        score -= score;
-    });
-    $("ornament_b").click(function(){
-        alert("")
+        count -= 1;
+        localStorage.setItem("count", count);
+        score.textContent = count;
       });
+      document.getElementById("ornament_b").addEventListener("click", function(){
+        alert("That's not correct. Try again.");
+        count -= 1;
+        localStorage.setItem("count", count);
+        score.textContent = count;
+        var firstCorrect = true;
+      });
+      document.getElementById("ornament_c").addEventListener("click", function(){
+        alert("That's correct!");
+        count += 4;
+        localStorage.setItem("count", count);
+        score.textContent = count;
+      });
+      document.getElementById("ornament_d").addEventListener("click", function(){
+        alert("That's not correct. Try again.");
+        count -= 1;
+        localStorage.setItem("count", count);
+        score.textContent = count;
+      });
+
+      if (firstCorrect = true){
+        $("#question").html("2. What does '==' mean?");
+      }
 });
