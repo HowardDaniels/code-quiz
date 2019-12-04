@@ -66,3 +66,14 @@ img{
     height: 50px;
     padding: 5px;
 }
+
+label{
+    margin-top: 50px;
+    margin-left: 100px;
+    color: red;
+    font-weight: bold;
+}
+
+textarea{
+    margin-left: 100px;
+}
