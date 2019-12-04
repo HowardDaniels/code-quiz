@@ -58,3 +58,11 @@ img{
     font-weight: bold;
     border: 1px solid red;
 }
+
+.score-box{
+    background-color: green;
+    color: red;
+    border: 1px solid red;
+    height: 50px;
+    padding: 5px;
+}

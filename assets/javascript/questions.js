@@ -1,3 +1,5 @@
+var score = document.querySelector("#score");
+
 function startTimer(duration, display) {
     var timer = duration, minutes, seconds;
     setInterval(function () {
@@ -25,4 +27,11 @@ $(".start-button").click(function() {
     document.getElementById("ornament_b").append(".");
     document.getElementById("ornament_c").append(";");
     document.getElementById("ornament_d").append(":");
+    $("ornament_a").click(function() {
+        alert("That's not correct. Try again.");
+        score -= score;
+    });
+    $("ornament_b").click(function(){
+        alert("")
+      });
 });
