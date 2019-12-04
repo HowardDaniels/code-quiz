@@ -19,4 +19,5 @@ $(".start-button").click(function() {
     var fiveMinutes = 60 * 5,
         display = document.querySelector('#time');
     startTimer(fiveMinutes, display);
+    document.getElementById("start-button").style.visibility = "hidden";
 });
