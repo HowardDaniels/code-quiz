@@ -30,6 +30,7 @@ body{
     color: red;
     border: 2px solid red;
     margin-left: 100px;
+    margin-bottom: 100px;
 }
 
 .timer{
@@ -38,4 +39,15 @@ body{
     border: 2px solid red;
     margin-left: 100px;
     padding: 5px;
+    margin-bottom: 100px;
+}
+
+.questions{
+    color: red;
+    font-weight: bold;
+}
+
+#canvas{
+    width: 500px;
+    height: 100px;
 }

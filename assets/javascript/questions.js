@@ -20,4 +20,5 @@ $(".start-button").click(function() {
         display = document.querySelector('#time');
     startTimer(fiveMinutes, display);
     document.getElementById("start-button").style.visibility = "hidden";
+    document.getElementById("question-1").append("What goes on the end of every statement in JavaScript?");
 });
