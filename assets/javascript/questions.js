@@ -3,6 +3,22 @@ var count = localStorage.getItem("count");
 count = 0;
 score.textContent = count;
 $("#question").html("");
+var i = 0;
+function nextQuestion(){
+  if (i < 9){
+  i += 1;
+  $("#question").text(questions[i].title);
+  $("#letter_a").text(questions[i].choices[0]);
+  $("#letter_b").text(questions[i].choices[1]);
+  $("#letter_c").text(questions[i].choices[2]);
+  $("#letter_d").text(questions[i].choices[3]);
+  }
+
+  else if (i = 10){
+    i+=0;
+    alert("Game over!");
+  }
+}
 
 var questions = [
     {
@@ -87,11 +103,158 @@ $(".start-button").click(function() {
         display = document.querySelector('#time');
     startTimer(fiveMinutes, display);
     document.getElementById("start-button").style.visibility = "hidden";
-    $("#question").text(questions[0].title);
-    $("#letter_a").text(questions[0].choices[0]);
-    $("#letter_b").text(questions[0].choices[1]);
-    $("#letter_c").text(questions[0].choices[2]);
-    $("#letter_d").text(questions[0].choices[3]);
+    $("#question").text(questions[i].title);
+    $("#letter_a").text(questions[i].choices[0]);
+    $("#letter_b").text(questions[i].choices[1]);
+    $("#letter_c").text(questions[i].choices[2]);
+    $("#letter_d").text(questions[i].choices[3]);
+    document.getElementById("ornament_a").addEventListener("click", function(){
+      if (questions[i].choices[0] = questions[0].answer){
+        alert("That's correct!");
+        count += 4;
+        localStorage.setItem("count", count);
+        score.textContent = count;
+        nextQuestion();
+      }
+      else if (questions[i].choices[0] != questions[0].answer){
+        alert("That's not correct. Try again.")
+        count -=1;
+        localStorage.setItem("count", count);
+        score.textContent = count;
+      }
+      
+    });
+    document.getElementById("ornament_b").addEventListener("click", function(){
+      if (questions[i].choices[1] = questions[0].answer){
+        alert("That's correct!");
+        count += 4;
+        localStorage.setItem("count", count);
+        score.textContent = count;
+        nextQuestion();
+      }
+      else if (questions[i].choices[1] != questions[0].answer){
+        alert("That's not correct. Try again.")
+        count -=1;
+        localStorage.setItem("count", count);
+        score.textContent = count;
+      }
+      
+    });
+    document.getElementById("ornament_c").addEventListener("click", function(){
+      if (questions[i].choices[1] = questions[0].answer){
+        alert("That's correct!");
+        count += 4;
+        localStorage.setItem("count", count);
+        score.textContent = count;
+        nextQuestion();
+      }
+      else if (questions[i].choices[1] != questions[0].answer){
+        alert("That's not correct. Try again.")
+        count -=1;
+        localStorage.setItem("count", count);
+        score.textContent = count;
+      }
+      
+    });
+    document.getElementById("ornament_d").addEventListener("click", function(){
+      if (questions[i].choices[1] = questions[0].answer){
+        alert("That's correct!");
+        count += 4;
+        localStorage.setItem("count", count);
+        score.textContent = count;
+        nextQuestion();
+      }
+      else if (questions[i].choices[1] != questions[0].answer){
+        alert("That's not correct. Try again.")
+        count -=1;
+        localStorage.setItem("count", count);
+        score.textContent = count;
+      }
+      
+    });
+  });
+ /*
+    for (i = 0; i < questions.length; i++){
+    $("#question").text(questions[i].title);
+    $("#letter_a").text(questions[i].choices[0]);
+    $("#letter_b").text(questions[i].choices[1]);
+    $("#letter_c").text(questions[i].choices[2]);
+    $("#letter_d").text(questions[i].choices[3]);
+
+document.getElementById("ornament_a").addEventListener("click", function(){
+  alert(i);
+  /* if (questions[i].choices[0] = questions[i].answer){
+    alert("That's correct!");
+    count += 4;
+    localStorage.setItem("count", count);
+    score.textContent = count;
+  }
+  else if (questions[i].choices[0] != questions[i].answer){
+    alert("That's not correct. Try again.")
+    count -=1;
+    localStorage.setItem("count", count);
+    score.textContent = count;
+  }
+  
+});
+
+document.getElementById("ornament_b").addEventListener("click", function(){
+  if (questions[i].choices[1] = questions[i].answer){
+    alert("That's correct!");
+    count += 4;
+    localStorage.setItem("count", count);
+    score.textContent = count;
+  }
+  else if (questions[i].choices[1] != questions[i].answer){
+    alert("That's not correct. Try again.")
+    count -=1;
+    localStorage.setItem("count", count);
+    score.textContent = count;
+  }
+});
+
+document.getElementById("ornament_c").addEventListener("click", function(){
+  if (questions[i].choices[2] = questions[i].answer){
+    alert("That's correct!");
+    count += 4;
+    localStorage.setItem("count", count);
+    score.textContent = count;
+  }
+  else if (questions[i].choices[2] != questions[i].answer){
+    alert("That's not correct. Try again.")
+    count -=1;
+    localStorage.setItem("count", count);
+    score.textContent = count;
+  }
+});
+
+document.getElementById("ornament_d").addEventListener("click", function(){
+  if (questions[i].choices[3] = questions[i].answer){
+    alert("That's correct!");
+    count += 4;
+    localStorage.setItem("count", count);
+    score.textContent = count;
+  }
+  else if (questions[i].choices[3] != questions[i].answer){
+    alert("That's not correct. Try again.")
+    count -=1;
+    localStorage.setItem("count", count);
+    score.textContent = count;
+  }
+
+
+});
+
+for (j = 0; j < questions[i].choices.j; j++) {
+if (questions[i].choices[j] == questions[i].answer){
+  i += 1;
+}
+}
+    }
+  });
+
+
+/*
     document.getElementById("#submit").addEventListener("click", function(){
         if (input = questions[0].answer){
             alert("That's correct!");
@@ -100,7 +263,7 @@ $(".start-button").click(function() {
             score.textContent = count;
         }
     })
-});
+}); */
   /*  $("#question").html("1. What goes on the end of every statement in JavaScript?");
     $("#letter_a").html("/");
     $("#letter_b").html(".");
