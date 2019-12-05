@@ -18,7 +18,7 @@ function nextQuestion(){
     i+=0;
     pauseTimer();
       }
-    }
+}
 
 var questions = [
     {
@@ -29,7 +29,7 @@ var questions = [
     {
       title: "What does '==' mean in JavaScript?",
       choices: ["sets a variable", "strictly equal (value and type the same)", "equal in value but not necessarily in type", "comment"],
-      answer: "strictly equal (value and type the same)"
+      answer: "equal in value but not necessarily in type"
     },
     {
         title: "What does console.log() do in JavaScript?",
@@ -99,10 +99,6 @@ function startTimer(duration, display) {
     }, 1000);
 }
 
-function pauseTimer() {
-  clearInterval(interval);
-  renderTime();
-}
 
 $(".start-button").click(function() {
     var fiveMinutes = 60 * 5,
@@ -184,3 +180,7 @@ $(".start-button").click(function() {
   console.log(questions[0].choices[1]);
   console.log(questions[0].answer);
   console.log((questions[0].choices[1]) == (questions[0].answer));
+
+  console.log(seconds.textContent);
+
+  console.log(document.getElementById("letter_a"));
