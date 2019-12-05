@@ -17,33 +17,9 @@ function nextQuestion(){
   else if (i = 10){
     i+=0;
     alert("Game over!");
-    function stopTimer(){
-      if ( seconds !== 0 || minutes !== 0 || hours !== 0 ) { /* display the full time before reseting the stop watch */ 
-        var fulltime = document .getElementById("time"); 
-        fulltime.style.display = "block"; 
-        var time = gethours + mins + secs; 
-        fulltime.innerHTML = 'Fulltime: ' + time; 
-        seconds = 0; 
-        minutes = 0; 
-        hours = 0;
-        secs = '0' + seconds; 
-        mins = '0' + minutes + ': '; 
-        gethours = '0' + hours + ': '; 
-        var x = document.getElementById ("time"); 
-        var stopTime = gethours + mins + secs; 
-        x.innerHTML = stopTime; 
-        var showStart = document.getElementById ('start'); 
-        showStart.style.display = "inline-block"; 
-        var showStop = document.getElementById ("stop"); 
-        showStop.style.display = "inline-block"; 
-        clearTimeout( clearTime ); } 
-        window.addEventListener( 'load', function ( ) { 
-          var stop = document.getElementById ("stop"); 
-          stop.addEventListener( 'click', stopTime ); 
-        }); 
+    pauseTimer();
+      }
     }
-  }
-}
 
 var questions = [
     {
@@ -119,6 +95,7 @@ function startTimer(duration, display) {
 
         if (--timer < 0) {
             timer = 0;
+            alert("Time's up!");
         }
     }, 1000);
 }
