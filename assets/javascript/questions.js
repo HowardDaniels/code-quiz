@@ -14,9 +14,8 @@ function nextQuestion(){
   $("#letter_d").text(questions[i].choices[3]);
   }
 
-  else if (i = 10){
+  else if (i = 9){
     i+=0;
-    alert("Game over!");
     pauseTimer();
       }
     }
@@ -100,25 +99,31 @@ function startTimer(duration, display) {
     }, 1000);
 }
 
+function pauseTimer() {
+  clearInterval(interval);
+  renderTime();
+}
+
 $(".start-button").click(function() {
     var fiveMinutes = 60 * 5,
         display = document.querySelector('#time');
     startTimer(fiveMinutes, display);
     document.getElementById("start-button").style.visibility = "hidden";
+    i=0;
     $("#question").text(questions[i].title);
     $("#letter_a").text(questions[i].choices[0]);
     $("#letter_b").text(questions[i].choices[1]);
     $("#letter_c").text(questions[i].choices[2]);
     $("#letter_d").text(questions[i].choices[3]);
     document.getElementById("ornament_a").addEventListener("click", function(){
-      if (questions[i].choices[0] = questions[0].answer){
+      if (questions[i].choices[0] == questions[i].answer){
         alert("That's correct!");
         count += 4;
         localStorage.setItem("count", count);
         score.textContent = count;
         nextQuestion();
       }
-      else if (questions[i].choices[0] != questions[0].answer){
+      else if (questions[i].choices[0] != questions[i].answer){
         alert("That's not correct. Try again.")
         count -=1;
         localStorage.setItem("count", count);
@@ -127,14 +132,14 @@ $(".start-button").click(function() {
       
     });
     document.getElementById("ornament_b").addEventListener("click", function(){
-      if (questions[i].choices[1] = questions[0].answer){
+      if (questions[i].choices[1] == questions[i].answer){
         alert("That's correct!");
         count += 4;
         localStorage.setItem("count", count);
         score.textContent = count;
         nextQuestion();
       }
-      else if (questions[i].choices[1] != questions[0].answer){
+      else if (questions[i].choices[1] != questions[i].answer){
         alert("That's not correct. Try again.")
         count -=1;
         localStorage.setItem("count", count);
@@ -143,14 +148,14 @@ $(".start-button").click(function() {
       
     });
     document.getElementById("ornament_c").addEventListener("click", function(){
-      if (questions[i].choices[1] = questions[0].answer){
+      if (questions[i].choices[2] == questions[i].answer){
         alert("That's correct!");
         count += 4;
         localStorage.setItem("count", count);
         score.textContent = count;
         nextQuestion();
       }
-      else if (questions[i].choices[1] != questions[0].answer){
+      else if (questions[i].choices[2] != questions[i].answer){
         alert("That's not correct. Try again.")
         count -=1;
         localStorage.setItem("count", count);
@@ -159,14 +164,14 @@ $(".start-button").click(function() {
       
     });
     document.getElementById("ornament_d").addEventListener("click", function(){
-      if (questions[i].choices[1] = questions[0].answer){
+      if (questions[i].choices[3] == questions[i].answer){
         alert("That's correct!");
         count += 4;
         localStorage.setItem("count", count);
         score.textContent = count;
         nextQuestion();
       }
-      else if (questions[i].choices[1] != questions[0].answer){
+      else if (questions[i].choices[3] != questions[i].answer){
         alert("That's not correct. Try again.")
         count -=1;
         localStorage.setItem("count", count);
@@ -175,3 +180,7 @@ $(".start-button").click(function() {
       
     });
   });
+
+  console.log(questions[0].choices[1]);
+  console.log(questions[0].answer);
+  console.log((questions[0].choices[1]) == (questions[0].answer));
