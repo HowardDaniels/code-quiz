@@ -4,21 +4,7 @@ count = 0;
 score.textContent = count;
 $("#question").html("");
 var i = 0;
-function nextQuestion(){
-  if (i < 9){
-  i += 1;
-  $("#question").text(questions[i].title);
-  $("#letter_a").text(questions[i].choices[0]);
-  $("#letter_b").text(questions[i].choices[1]);
-  $("#letter_c").text(questions[i].choices[2]);
-  $("#letter_d").text(questions[i].choices[3]);
-  }
-
-  else if (i = 9){
-    i+=0;
-    pauseTimer();
-      }
-}
+var interval;
 
 var questions = [
     {
@@ -94,11 +80,28 @@ function startTimer(duration, display) {
 
         if (--timer < 0) {
             timer = 0;
+            clearInterval(interval);
             alert("Time's up!");
         }
     }, 1000);
 }
 
+function nextQuestion(){
+  if (i < 9){
+  i += 1;
+  $("#question").text(questions[i].title);
+  $("#letter_a").text(questions[i].choices[0]);
+  $("#letter_b").text(questions[i].choices[1]);
+  $("#letter_c").text(questions[i].choices[2]);
+  $("#letter_d").text(questions[i].choices[3]);
+  }
+
+  else if (i = 9){
+    i+=0;
+    alert("Game over!");
+    clearInterval(interval);
+      }
+}
 
 $(".start-button").click(function() {
     var fiveMinutes = 60 * 5,
