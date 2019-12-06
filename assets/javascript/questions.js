@@ -1,12 +1,10 @@
-var score = document.querySelector("#score");
-var count = localStorage.getItem("count");
+/* var count = localStorage.getItem("count");
 count = 0;
-score.textContent = count;
+*/
 $("#question").html("");
 var i = 0;
 var interval;
-var timer = document.querySelector("#time");
-$("#time").html(0);
+var counter = 0;
 
 var questions = [
     {
@@ -70,6 +68,7 @@ var questions = [
   ];
 
 
+
 function nextQuestion(){
   if (i < 9){
   i += 1;
@@ -86,6 +85,14 @@ function nextQuestion(){
 }}
 
 $(".start-button").click(function() {
+    var timer = document.querySelector("#time");
+    $("#time").html(0);
+  function timeIt(){
+    counter++;
+    $(timer).html(counter);
+  }
+  setInterval(timeIt, 1000);
+  timeIt();
     document.getElementById("start-button").style.visibility = "hidden";
     i=0;
     $("#question").text(questions[i].title);
