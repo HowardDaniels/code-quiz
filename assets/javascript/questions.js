@@ -6,6 +6,7 @@ var i = 0;
 var interval;
 var counter = 0;
 var timeLeft = 150;
+var score = localStorage.getItem("score");
 
 var questions = [
     {
@@ -90,9 +91,16 @@ $(".start-button").click(function() {
     $("#time").html(0);
   function timeIt(){
     counter++;
-    $(timer).html(timeLeft - counter);
+    score = timeLeft - counter;
+    $(timer).html(score);
+    if (i = 9){
+      localStorage.setItem("score", score);
+    }
   }
-  setInterval(timeIt, 1000);
+  var interval = setInterval(timeIt, 1000);
+  if (counter == timeLeft){
+    clearInterval(interval);
+  }
   timeIt();
     document.getElementById("start-button").style.visibility = "hidden";
     i=0;
@@ -104,64 +112,40 @@ $(".start-button").click(function() {
     document.getElementById("ornament_a").addEventListener("click", function(){
       if (questions[i].choices[0] == questions[i].answer){
         alert("That's correct!");
-        count += 4;
-        localStorage.setItem("count", count);
-        score.textContent = count;
         nextQuestion();
       }
       else if (questions[i].choices[0] != questions[i].answer){
-        alert("That's not correct. Try again.")
-        count -=1;
-        localStorage.setItem("count", count);
-        score.textContent = count;
+        alert("That's not correct. Try again.");
       }
       
     });
     document.getElementById("ornament_b").addEventListener("click", function(){
       if (questions[i].choices[1] == questions[i].answer){
         alert("That's correct!");
-        count += 4;
-        localStorage.setItem("count", count);
-        score.textContent = count;
         nextQuestion();
       }
       else if (questions[i].choices[1] != questions[i].answer){
-        alert("That's not correct. Try again.")
-        count -=1;
-        localStorage.setItem("count", count);
-        score.textContent = count;
+        alert("That's not correct. Try again.");
       }
       
     });
     document.getElementById("ornament_c").addEventListener("click", function(){
       if (questions[i].choices[2] == questions[i].answer){
         alert("That's correct!");
-        count += 4;
-        localStorage.setItem("count", count);
-        score.textContent = count;
         nextQuestion();
       }
       else if (questions[i].choices[2] != questions[i].answer){
-        alert("That's not correct. Try again.")
-        count -=1;
-        localStorage.setItem("count", count);
-        score.textContent = count;
+        alert("That's not correct. Try again.");
       }
       
     });
     document.getElementById("ornament_d").addEventListener("click", function(){
       if (questions[i].choices[3] == questions[i].answer){
         alert("That's correct!");
-        count += 4;
-        localStorage.setItem("count", count);
-        score.textContent = count;
         nextQuestion();
       }
       else if (questions[i].choices[3] != questions[i].answer){
-        alert("That's not correct. Try again.")
-        count -=1;
-        localStorage.setItem("count", count);
-        score.textContent = count;
+        alert("That's not correct. Try again.");
       }
       
     });
