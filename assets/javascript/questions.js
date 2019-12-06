@@ -5,6 +5,7 @@ $("#question").html("");
 var i = 0;
 var interval;
 var counter = 0;
+var timeLeft = 150;
 
 var questions = [
     {
@@ -89,7 +90,7 @@ $(".start-button").click(function() {
     $("#time").html(0);
   function timeIt(){
     counter++;
-    $(timer).html(counter);
+    $(timer).html(timeLeft - counter);
   }
   setInterval(timeIt, 1000);
   timeIt();
