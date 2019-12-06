@@ -5,6 +5,8 @@ score.textContent = count;
 $("#question").html("");
 var i = 0;
 var interval;
+var timer = document.querySelector("#time");
+$("#time").html(0);
 
 var questions = [
     {
@@ -67,24 +69,6 @@ var questions = [
     },
   ];
 
-function startTimer(duration, display) {
-    var timer = duration, minutes, seconds;
-    setInterval(function () {
-        minutes = parseInt(timer / 60, 10);
-        seconds = parseInt(timer % 60, 10);
-
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-
-        display.textContent = minutes + ":" + seconds;
-
-        if (--timer < 0) {
-            timer = 0;
-            clearInterval(interval);
-            alert("Time's up!");
-        }
-    }, 1000);
-}
 
 function nextQuestion(){
   if (i < 9){
@@ -98,15 +82,10 @@ function nextQuestion(){
 
   else if (i = 9){
     i+=0;
-    alert("Game over!");
-    clearInterval(interval);
-      }
-}
+    alert("Congrats. You won!");
+}}
 
 $(".start-button").click(function() {
-    var fiveMinutes = 60 * 5,
-        display = document.querySelector('#time');
-    startTimer(fiveMinutes, display);
     document.getElementById("start-button").style.visibility = "hidden";
     i=0;
     $("#question").text(questions[i].title);
@@ -179,11 +158,3 @@ $(".start-button").click(function() {
       
     });
   });
-
-  console.log(questions[0].choices[1]);
-  console.log(questions[0].answer);
-  console.log((questions[0].choices[1]) == (questions[0].answer));
-
-  console.log(seconds.textContent);
-
-  console.log(document.getElementById("letter_a"));
