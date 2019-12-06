@@ -7,6 +7,7 @@ var interval;
 var counter = 0;
 var timeLeft = 150;
 var score = localStorage.getItem("score");
+var time = document.querySelector("time");
 
 var questions = [
     {
@@ -116,6 +117,9 @@ $(".start-button").click(function() {
       }
       else if (questions[i].choices[0] != questions[i].answer){
         alert("That's not correct. Try again.");
+        score -= 15;
+        localStorage.setItem("score", score);
+        time.textContent = score;
       }
       
     });
@@ -126,6 +130,9 @@ $(".start-button").click(function() {
       }
       else if (questions[i].choices[1] != questions[i].answer){
         alert("That's not correct. Try again.");
+        score -= 15;
+        localStorage.setItem("score", score);
+        time.textContent = score;
       }
       
     });
@@ -136,6 +143,9 @@ $(".start-button").click(function() {
       }
       else if (questions[i].choices[2] != questions[i].answer){
         alert("That's not correct. Try again.");
+        score -= 15;
+        localStorage.setItem("score", score);
+        time.textContent = score;
       }
       
     });
@@ -146,6 +156,12 @@ $(".start-button").click(function() {
       }
       else if (questions[i].choices[3] != questions[i].answer){
         alert("That's not correct. Try again.");
+        /*count -=1;
+        localStorage.setItem("count", count);
+        score.textContent = count; */
+        score -= 15;
+        localStorage.setItem("score", score);
+        time.textContent = score;
       }
       
     });
