@@ -14,19 +14,40 @@
             <div class="col-md-2"><button class="ornaments" id="ornament_c"><img src="assets/images/ornament_c.jpg"><div id="letter_c"></div></button></div>
             <div class="col-md-2"><button class="ornaments" id="ornament_d"><img src="assets/images/ornament_d.jpg"><div id="letter_d"></div></button></div>
         </div>
-            <button class="start-button" id="start-button">Start Quiz</button>
-            <div class="row">
-                <div class="col-md-4">
-                <button type="button" class="btn btn-primary" id="high-scores">View High Scores</button>
+        <div class="row" id="score-row">
+            <div class="col-md-2">
+            <button type="button" class="btn btn-primary" id="high-scores">View High Scores</button>
 
-                </div>
-                <div class="col-md-6">
-                    <div class="timer">Time: 
-                       <div id="time"></div>
-                              </div>
-                    </div>
+            </div>
+            <div class="col-md-2">
+            <div id="high-score-list">
+                <table id="high-score-table">
+                        <tr>
+                                <th>Initials</th>
+                                <th>Score</th>
+                              </tr>
+                              <tr>
+                                <td id="initials-1"></td>
+                                <td id="score-1"></td>
+                              </tr>
+                              <tr>
+                                <td id="initials-2"></td>
+                                <td id="score-2"></td>
+                              </tr>
+                              <tr>
+                                <td id="initials-3"></td>
+                                <td id="score-3"></td>
+                            </tr>
+                </table>
+            </div>
+            </div>
+            <div class="col-md-6">
+                <div class="timer">Time: 
+                   <div id="time"></div>
                 </div>
             </div>
+        </div>
+            <button class="start-button" id="start-button">Start Quiz</button>
             <script src="assets/javascript/questions.js"></script>
     </body>
 </html>

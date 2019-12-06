@@ -175,10 +175,31 @@ $(".start-button").click(function() {
         window.localStorage.setItem("initials", JSON.stringify(initials));
         console.log(count);
         console.log(initials);
+        var gameResult = {};
+        var highscoreList = [];
+
+function toHighscoreList() {
+    gameResult = {initials: initials, score: count};
+    highscoreList.push(gameResult);
+    highscoreList.sort(function(a,b) { return (b.score - a.score ) });
+$("#initials-1").text(highscoreList[0].initials);
+$("#score-1").text(highscoreList[0].score);
+$("#initials-2").text(highscoreList[1].initials);
+$("#score-2").text(highscoreList[1].score);
+$("#initials-3").text(highscoreList[2].initials);
+$("#score-3").text(highscoreList[2].score);
+
+   /* $('#score1').text(highscoreList[0].initials + " - score: "+ highscoreList[0].score); */
+
+};
+toHighscoreList();
 
 
     }}
 
-    document.getElementById("high-scores").addEventListener()
+    document.getElementById("high-scores").addEventListener("click", function(){
+      document.getElementById("high-score-list").style.visibility = "visible";
+
+    })
 
   });

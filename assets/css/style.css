@@ -19,7 +19,7 @@ body{
     height: 50px;
     width: 50%;
     margin-left: 300px;
-    margin-top: 300px;
+    margin-top: 50px;
     margin-bottom: 100px;
     background-color: red;
     color: white;
@@ -56,28 +56,21 @@ img{
     background-color: green;
     color: red;
     font-weight: bold;
-    border: 1px solid red;
+    border: 2px solid red;
+    margin-top: 50px;
 }
 
-.score-box{
+#score-row{
+    margin-top: 50px;
+}
+
+#high-score-list{
     background-color: green;
     color: red;
-    border: 2px solid red;
-    height: 50px;
-    padding: 5px;
-}
-
-label{
-    margin-top: 50px;
-    margin-left: 100px;
-    color: red;
     font-weight: bold;
-}
-
-textarea{
-    margin-left: 100px;
-}
-
-#submit{
-    margin-left: 100px;
+    border: 2px solid red;
+    height: 100px;
+    width: 200px;
+    margin-left: 50px;
+    visibility: visible;
 }
