@@ -1,12 +1,9 @@
-/* var count = localStorage.getItem("count");
-count = 0;
-*/
+var count = localStorage.getItem("count");
 $("#question").html("");
 var i = 0;
 var interval;
 var counter = 0;
 var timeLeft = 150;
-var score = localStorage.getItem("score");
 var time = document.querySelector("time");
 
 var questions = [
@@ -92,10 +89,10 @@ $(".start-button").click(function() {
     $("#time").html(0);
   function timeIt(){
     counter++;
-    score = timeLeft - counter;
-    $(timer).html(score);
+    count = timeLeft - counter;
+    $(timer).html(count);
     if (i = 9){
-      localStorage.setItem("score", score);
+      localStorage.setItem("count", count);
     }
   }
   var interval = setInterval(timeIt, 1000);
@@ -117,9 +114,9 @@ $(".start-button").click(function() {
       }
       else if (questions[i].choices[0] != questions[i].answer){
         alert("That's not correct. Try again.");
-        score -= 15;
-        localStorage.setItem("score", score);
-        time.textContent = score;
+        count -= 15;
+        localStorage.setItem("count", count);
+        time.textContent = count;
       }
       
     });
@@ -130,9 +127,9 @@ $(".start-button").click(function() {
       }
       else if (questions[i].choices[1] != questions[i].answer){
         alert("That's not correct. Try again.");
-        score -= 15;
-        localStorage.setItem("score", score);
-        time.textContent = score;
+        count -= 15;
+        localStorage.setItem("count", count);
+        time.textContent = count;
       }
       
     });
@@ -143,9 +140,9 @@ $(".start-button").click(function() {
       }
       else if (questions[i].choices[2] != questions[i].answer){
         alert("That's not correct. Try again.");
-        score -= 15;
-        localStorage.setItem("score", score);
-        time.textContent = score;
+        count -= 15;
+        localStorage.setItem("count", count);
+        time.textContent = count;
       }
       
     });
@@ -159,9 +156,11 @@ $(".start-button").click(function() {
         /*count -=1;
         localStorage.setItem("count", count);
         score.textContent = count; */
-        score -= 15;
-        localStorage.setItem("score", score);
-        time.textContent = score;
+        clearInterval(interval);
+        count -= 15;
+        localStorage.setItem("count", count);
+        time.textContent = count;
+        console.log(time.textContent);
       }
       
     });
