@@ -64,7 +64,7 @@ img{
     margin-top: 50px;
 }
 
-#high-score-list{
+#scoretable{
     background-color: green;
     color: red;
     font-weight: bold;
@@ -72,5 +72,39 @@ img{
     height: 100px;
     width: 200px;
     margin-left: 50px;
-    visibility: visible;
+    visibility: hidden;
+}
+
+
+@media screen and (max-width: 980px) {
+
+}
+
+@media screen and (max-width: 768px) {
+.title{
+    height: 200px;
+    border: 2px solid blue;
+}
+
+.timer{
+    margin-left: 100px;
+    width: 100px;
+}
+}
+
+@media screen and (max-width: 640px) {
+.title{
+    border: 2px solid green;
+    margin-left: 150px;
+}
+#question{
+    color: green;
+}
+.ornaments{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.start-button{
+    width: 150px;
+}
 }

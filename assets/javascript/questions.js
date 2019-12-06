@@ -5,6 +5,19 @@ var interval;
 var counter = 0;
 var timeLeft = 150;
 var time = document.querySelector("time");
+var gameResult= {};
+var highscoreList = [];
+localStorage.getItem(highscoreList);
+/*
+console.log(highscoreList);
+$("#initials-1").text(highscoreList[0].initials);
+$("#score-1").text(highscoreList[0].score);
+$("#initials-2").text(highscoreList[1].initials);
+$("#score-2").text(highscoreList[1].score);
+$("#initials-3").text(highscoreList[2].initials);
+$("#score-3").text(highscoreList[2].score);
+
+*/
 
 var questions = [
     {
@@ -182,14 +195,31 @@ function toHighscoreList() {
     gameResult = {initials: initials, score: count};
     highscoreList.push(gameResult);
     highscoreList.sort(function(a,b) { return (b.score - a.score ) });
+    /*
+    function receive(data,status,resobj){
+      var table=document.getElementById("scoretable");
+      table.innerHTML="<tr> <th >Initials</th><th >Score</th></tr>";
+      for (var j=0; j<data.length;j++){
+        entryJSONObject = data[j];
+        var initials = entryJSONObject.initials;
+        var count = entryJSONObject.count;
+        var newRow = document.createElement("tr");
+        newRow.innerHTML="<td>"+initials+"</td><td>"+count+"</td>";
+        table.appendChild(newRow);
+      }
+    }
+    receive();
+    /*
 $("#initials-1").text(highscoreList[0].initials);
 $("#score-1").text(highscoreList[0].score);
 $("#initials-2").text(highscoreList[1].initials);
 $("#score-2").text(highscoreList[1].score);
 $("#initials-3").text(highscoreList[2].initials);
 $("#score-3").text(highscoreList[2].score);
-
-   /* $('#score1').text(highscoreList[0].initials + " - score: "+ highscoreList[0].score); */
+localStorage.setItem(highscoreList);
+$("#high-score-list").text(highscoreList);
+*/
+$('#scoretable').text(highscoreList[0].initials + " - score: "+ highscoreList[0].score);
 
 };
 toHighscoreList();
@@ -198,7 +228,7 @@ toHighscoreList();
     }}
 
     document.getElementById("high-scores").addEventListener("click", function(){
-      document.getElementById("high-score-list").style.visibility = "visible";
+      document.getElementById("scoretable").style.visibility = "visible";
 
     })
 
