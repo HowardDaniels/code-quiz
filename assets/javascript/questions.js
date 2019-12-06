@@ -170,6 +170,15 @@ $(".start-button").click(function() {
         i+=0;
         alert("Congrats. You won!");
         clearInterval(interval);
+        localStorage.setItem("count", count);
+        var initials = prompt("What are your initials?");
+        window.localStorage.setItem("initials", JSON.stringify(initials));
+        console.log(count);
+        console.log(initials);
+
+
     }}
+
+    document.getElementById("high-scores").addEventListener()
 
   });
