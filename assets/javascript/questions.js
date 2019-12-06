@@ -67,23 +67,6 @@ var questions = [
     },
   ];
 
-
-
-function nextQuestion(){
-  if (i < 9){
-  i += 1;
-  $("#question").text(questions[i].title);
-  $("#letter_a").text(questions[i].choices[0]);
-  $("#letter_b").text(questions[i].choices[1]);
-  $("#letter_c").text(questions[i].choices[2]);
-  $("#letter_d").text(questions[i].choices[3]);
-  }
-
-  else if (i = 9){
-    i+=0;
-    alert("Congrats. You won!");
-}}
-
 $(".start-button").click(function() {
     var timer = document.querySelector("#time");
     $("#time").html(0);
@@ -91,15 +74,13 @@ $(".start-button").click(function() {
     counter++;
     count = timeLeft - counter;
     $(timer).html(count);
-    if (i = 9){
-      localStorage.setItem("count", count);
-    }
   }
   var interval = setInterval(timeIt, 1000);
   if (counter == timeLeft){
     clearInterval(interval);
   }
   timeIt();
+
     document.getElementById("start-button").style.visibility = "hidden";
     i=0;
     $("#question").text(questions[i].title);
@@ -174,4 +155,21 @@ $(".start-button").click(function() {
       }
       
     });
+
+    function nextQuestion(){
+      if (i < 9){
+      i += 1;
+      $("#question").text(questions[i].title);
+      $("#letter_a").text(questions[i].choices[0]);
+      $("#letter_b").text(questions[i].choices[1]);
+      $("#letter_c").text(questions[i].choices[2]);
+      $("#letter_d").text(questions[i].choices[3]);
+      }
+    
+      else if (i = 9){
+        i+=0;
+        alert("Congrats. You won!");
+        clearInterval(interval);
+    }}
+
   });
