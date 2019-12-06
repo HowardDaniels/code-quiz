@@ -114,9 +114,12 @@ $(".start-button").click(function() {
       }
       else if (questions[i].choices[0] != questions[i].answer){
         alert("That's not correct. Try again.");
+        clearInterval(interval);
         count -= 15;
         localStorage.setItem("count", count);
-        time.textContent = count;
+        timeLeft = count;
+        setInterval(timeIt, 1000);
+        timeIt();
       }
       
     });
@@ -127,9 +130,12 @@ $(".start-button").click(function() {
       }
       else if (questions[i].choices[1] != questions[i].answer){
         alert("That's not correct. Try again.");
+        clearInterval(interval);
         count -= 15;
         localStorage.setItem("count", count);
-        time.textContent = count;
+        timeLeft = count;
+        setInterval(timeIt, 1000);
+        timeIt();
       }
       
     });
@@ -140,9 +146,12 @@ $(".start-button").click(function() {
       }
       else if (questions[i].choices[2] != questions[i].answer){
         alert("That's not correct. Try again.");
+        clearInterval(interval);
         count -= 15;
         localStorage.setItem("count", count);
-        time.textContent = count;
+        timeLeft = count;
+        setInterval(timeIt, 1000);
+        timeIt();
       }
       
     });
@@ -159,8 +168,9 @@ $(".start-button").click(function() {
         clearInterval(interval);
         count -= 15;
         localStorage.setItem("count", count);
-        time.textContent = count;
-        console.log(time.textContent);
+        timeLeft = count;
+        setInterval(timeIt, 1000);
+        timeIt();
       }
       
     });
