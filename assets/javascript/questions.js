@@ -83,29 +83,35 @@ var questions = [
 $(".start-button").click(function() {
     var timer = document.querySelector("#time");
     $("#time").html(0);
+
   function timeIt(){
     counter++;
     count = timeLeft - counter;
     $(timer).html(count);
   }
+
   var interval = setInterval(timeIt, 1000);
   if (counter == timeLeft){
     clearInterval(interval);
   }
+
   timeIt();
 
     document.getElementById("start-button").style.visibility = "hidden";
+
     i=0;
     $("#question").text(questions[i].title);
     $("#letter_a").text(questions[i].choices[0]);
     $("#letter_b").text(questions[i].choices[1]);
     $("#letter_c").text(questions[i].choices[2]);
     $("#letter_d").text(questions[i].choices[3]);
+
     document.getElementById("ornament_a").addEventListener("click", function(){
       if (questions[i].choices[0] == questions[i].answer){
         alert("That's correct!");
         nextQuestion();
       }
+
       else if (questions[i].choices[0] != questions[i].answer){
         alert("That's not correct. Try again.");
         clearInterval(interval);
@@ -117,11 +123,13 @@ $(".start-button").click(function() {
       }
       
     });
+
     document.getElementById("ornament_b").addEventListener("click", function(){
       if (questions[i].choices[1] == questions[i].answer){
         alert("That's correct!");
         nextQuestion();
       }
+
       else if (questions[i].choices[1] != questions[i].answer){
         alert("That's not correct. Try again.");
         clearInterval(interval);
@@ -133,11 +141,13 @@ $(".start-button").click(function() {
       }
       
     });
+
     document.getElementById("ornament_c").addEventListener("click", function(){
       if (questions[i].choices[2] == questions[i].answer){
         alert("That's correct!");
         nextQuestion();
       }
+
       else if (questions[i].choices[2] != questions[i].answer){
         alert("That's not correct. Try again.");
         clearInterval(interval);
@@ -149,11 +159,13 @@ $(".start-button").click(function() {
       }
       
     });
+
     document.getElementById("ornament_d").addEventListener("click", function(){
       if (questions[i].choices[3] == questions[i].answer){
         alert("That's correct!");
         nextQuestion();
       }
+
       else if (questions[i].choices[3] != questions[i].answer){
         alert("That's not correct. Try again.");
         /*count -=1;
@@ -222,14 +234,13 @@ $("#high-score-list").text(highscoreList);
 $('#scoretable').text(highscoreList[0].initials + " - score: "+ highscoreList[0].score);
 
 };
-toHighscoreList();
 
+toHighscoreList();
 
     }}
 
-    document.getElementById("high-scores").addEventListener("click", function(){
-      document.getElementById("scoretable").style.visibility = "visible";
-
-    })
+document.getElementById("high-scores").addEventListener("click", function(){
+  document.getElementById("scoretable").style.visibility = "visible";
+    });
 
   });
