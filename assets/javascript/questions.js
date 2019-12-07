@@ -4,7 +4,7 @@ var i = 0;
 var interval;
 var counter = 0;
 var timeLeft = 150;
-var time = document.querySelector("time");
+var timer = document.querySelector("time");
 var gameResult= {};
 var highscoreList = [];
 localStorage.getItem(highscoreList);
@@ -80,15 +80,15 @@ var questions = [
     },
   ];
 
-$(".start-button").click(function() {
-    var timer = document.querySelector("#time");
-    $("#time").html(0);
-
   function timeIt(){
     counter++;
     count = timeLeft - counter;
     $(timer).html(count);
   }
+
+
+$(".start-button").click(function() {
+    $("#time").html(0);
 
   var interval = setInterval(timeIt, 1000);
   if (counter == timeLeft){
@@ -180,6 +180,11 @@ $(".start-button").click(function() {
       }
       
     });
+    nextQuestion();
+    clearInterval(interval);
+    initials;
+    toHighscoreList();
+  });
 
     function nextQuestion(){
       if (i < 9){
@@ -197,15 +202,15 @@ $(".start-button").click(function() {
         clearInterval(interval);
         localStorage.setItem("count", count);
         var initials = prompt("What are your initials?");
-        window.localStorage.setItem("initials", JSON.stringify(initials));
+        localStorage.setItem("initials", JSON.stringify(initials));
         console.log(count);
         console.log(initials);
-        var gameResult = {};
-        var highscoreList = [];
+      }}
 
 function toHighscoreList() {
     gameResult = {initials: initials, score: count};
     highscoreList.push(gameResult);
+    localStorage.setItem("highscoreList", JSON.stringify(highscoreList));
     highscoreList.sort(function(a,b) { return (b.score - a.score ) });
     /*
     function receive(data,status,resobj){
@@ -232,15 +237,14 @@ localStorage.setItem(highscoreList);
 $("#high-score-list").text(highscoreList);
 */
 $('#scoretable').text(highscoreList[0].initials + " - score: "+ highscoreList[0].score);
+//localStorage.getItem("hi")
 
 };
 
-toHighscoreList();
 
-    }}
+
+
 
 document.getElementById("high-scores").addEventListener("click", function(){
   document.getElementById("scoretable").style.visibility = "visible";
     });
-
-  });
