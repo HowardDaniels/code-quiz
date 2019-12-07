@@ -6,8 +6,8 @@ var counter = 0;
 var timeLeft = 150;
 var timer = document.querySelector("#time");
 var gameResult= {};
-var highscoreList = [];
-initials = "";
+var highscoreList;
+var initialsCurrent;
 localStorage.getItem(highscoreList);
 /*
 console.log(highscoreList);
@@ -85,8 +85,12 @@ var questions = [
     counter++;
     count = timeLeft - counter;
     $(timer).html(count);
+    if (counter >= timeLeft){
+      clearInterval(interval);
+      alert("Time's up!");
+    }
   }
-
+    
   function nextQuestion(){
     if (i < 9){
     i += 1;
@@ -102,25 +106,24 @@ var questions = [
       alert("Congrats. You won!");
       clearInterval(interval);
       localStorage.setItem("count", count);
-      var initials = prompt("What are your initials?");
-      localStorage.setItem("initials", JSON.stringify(initials));
+//put count array info here
+
+      var initialsCurrent = prompt("What are your initials?");
+      var initialsArray = localStorage.getItem("initials");
+      initialsArray = initialsArray ? initialsArray.split(',') : [];
+      initialsArray.push(initialsCurrent);
+      localStorage.setItem("initials", initialsArray.toString());
       console.log(count);
-      console.log(initials);
+      console.log(initialsCurrent);
     }}
 
 
 $(".start-button").click(function() {
     $("#time").html(0);
-    var interval = setInterval(timeIt, 1000);
+    setInterval(timeIt, 1000);
     timeIt();
 
-  if (counter == timeLeft){
-    clearInterval(interval);
-  }
-
     document.getElementById("start-button").style.visibility = "hidden";
-
-    i=0;
 
     $("#question").text(questions[i].title);
     $("#letter_a").text(questions[i].choices[0]);
@@ -140,7 +143,6 @@ $(".start-button").click(function() {
         count -= 15;
         localStorage.setItem("count", count);
         timeLeft = count;
-        setInterval(timeIt, 1000);
         timeIt();
       }
       
@@ -158,7 +160,6 @@ $(".start-button").click(function() {
         count -= 15;
         localStorage.setItem("count", count);
         timeLeft = count;
-        setInterval(timeIt, 1000);
         timeIt();
       }
       
@@ -176,7 +177,6 @@ $(".start-button").click(function() {
         count -= 15;
         localStorage.setItem("count", count);
         timeLeft = count;
-        setInterval(timeIt, 1000);
         timeIt();
       }
       
@@ -197,7 +197,6 @@ $(".start-button").click(function() {
         count -= 15;
         localStorage.setItem("count", count);
         timeLeft = count;
-        setInterval(timeIt, 1000);
         timeIt();
       }
       
@@ -206,10 +205,14 @@ $(".start-button").click(function() {
 
 
 function toHighscoreList() {
-    gameResult = {initials: initials, score: count};
+  /*  gameResult = {initials: initials, count: count};
     highscoreList.push(gameResult);
     localStorage.setItem("highscoreList", JSON.stringify(highscoreList));
-    highscoreList.sort(function(a,b) { return (b.score - a.score ) });
+    highscoreList.sort(function(a,b) { return (b.count - a.count ) }); */
+    var initialsArray = localStorage.getItem(initials);
+    initialsArray = initialsArray ? initialsArray.split(',') : [];
+    initialsArray.push(initialsCurrent);
+    localStorage.setItem(initials, initialsArray.toString());
     /*
     function receive(data,status,resobj){
       var table=document.getElementById("scoretable");
@@ -239,10 +242,20 @@ $('#scoretable').text(highscoreList[0].initials + " - score: "+ highscoreList[0]
 
 };
 
+function fromHighscoreList(){
+  var initials = localStorage.getItem("initials");
+  var count = localStorage.getItem("count");
+  $("#scoretable").text(initials + ": " + count);
+}
+
+
+
 
 
 
 
 document.getElementById("high-scores").addEventListener("click", function(){
   document.getElementById("scoretable").style.visibility = "visible";
+  fromHighscoreList();
+  console.log(highscoreList);
     });
