@@ -4,9 +4,10 @@ var i = 0;
 var interval;
 var counter = 0;
 var timeLeft = 150;
-var timer = document.querySelector("time");
+var timer = document.querySelector("#time");
 var gameResult= {};
 var highscoreList = [];
+initials = "";
 localStorage.getItem(highscoreList);
 /*
 console.log(highscoreList);
@@ -86,20 +87,41 @@ var questions = [
     $(timer).html(count);
   }
 
+  function nextQuestion(){
+    if (i < 9){
+    i += 1;
+    $("#question").text(questions[i].title);
+    $("#letter_a").text(questions[i].choices[0]);
+    $("#letter_b").text(questions[i].choices[1]);
+    $("#letter_c").text(questions[i].choices[2]);
+    $("#letter_d").text(questions[i].choices[3]);
+    }
+  
+    else if (i = 9){
+      i+=0;
+      alert("Congrats. You won!");
+      clearInterval(interval);
+      localStorage.setItem("count", count);
+      var initials = prompt("What are your initials?");
+      localStorage.setItem("initials", JSON.stringify(initials));
+      console.log(count);
+      console.log(initials);
+    }}
+
 
 $(".start-button").click(function() {
     $("#time").html(0);
+    var interval = setInterval(timeIt, 1000);
+    timeIt();
 
-  var interval = setInterval(timeIt, 1000);
   if (counter == timeLeft){
     clearInterval(interval);
   }
 
-  timeIt();
-
     document.getElementById("start-button").style.visibility = "hidden";
 
     i=0;
+
     $("#question").text(questions[i].title);
     $("#letter_a").text(questions[i].choices[0]);
     $("#letter_b").text(questions[i].choices[1]);
@@ -180,32 +202,8 @@ $(".start-button").click(function() {
       }
       
     });
-    nextQuestion();
-    clearInterval(interval);
-    initials;
-    toHighscoreList();
   });
 
-    function nextQuestion(){
-      if (i < 9){
-      i += 1;
-      $("#question").text(questions[i].title);
-      $("#letter_a").text(questions[i].choices[0]);
-      $("#letter_b").text(questions[i].choices[1]);
-      $("#letter_c").text(questions[i].choices[2]);
-      $("#letter_d").text(questions[i].choices[3]);
-      }
-    
-      else if (i = 9){
-        i+=0;
-        alert("Congrats. You won!");
-        clearInterval(interval);
-        localStorage.setItem("count", count);
-        var initials = prompt("What are your initials?");
-        localStorage.setItem("initials", JSON.stringify(initials));
-        console.log(count);
-        console.log(initials);
-      }}
 
 function toHighscoreList() {
     gameResult = {initials: initials, score: count};
