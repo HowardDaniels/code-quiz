@@ -7,6 +7,7 @@ var timeLeft = 150;
 var timer = document.querySelector("#time");
 var gameResult= {};
 var highscoreList;
+var countCurrent;
 var initialsCurrent;
 localStorage.getItem(highscoreList);
 /*
@@ -107,9 +108,11 @@ var questions = [
       clearInterval(interval);
       localStorage.setItem("count", count);
 //put count array info here
+var countCurrent = count;
 var countArray = localStorage.getItem("count");
 countArray = countArray ? countArray.split(',') : [];
-
+countArray.push(countCurrent);
+localStorage.setItem("count", countArray.toString());
       var initialsCurrent = prompt("What are your initials?");
       var initialsArray = localStorage.getItem("initials");
       initialsArray = initialsArray ? initialsArray.split(',') : [];
