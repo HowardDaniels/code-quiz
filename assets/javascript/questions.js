@@ -107,6 +107,8 @@ var questions = [
       clearInterval(interval);
       localStorage.setItem("count", count);
 //put count array info here
+var countArray = localStorage.getItem("count");
+countArray = countArray ? countArray.split(',') : [];
 
       var initialsCurrent = prompt("What are your initials?");
       var initialsArray = localStorage.getItem("initials");
