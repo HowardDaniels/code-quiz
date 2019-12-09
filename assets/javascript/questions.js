@@ -2,6 +2,7 @@ var count = localStorage.getItem("count");
 $("#question").html("");
 var i = 0;
 var interval;
+var initials;
 var counter = 0;
 var timeLeft = 150;
 var timer = document.querySelector("#time");
@@ -106,22 +107,22 @@ var questions = [
       i+=0;
       alert("Congrats. You won!");
       clearInterval(interval);
-      localStorage.setItem("count", count);
-//put count array info here
-var countCurrent = count;
-var countArray = localStorage.getItem("count");
-countArray = countArray ? countArray.split(',') : [];
-countArray.push(countCurrent);
-localStorage.setItem("count", countArray.toString());
+      var countCurrent = count;
+      var countArray = localStorage.getItem("count");
+      countArray = countArray ? countArray.split(',') : [];
+      countArray.push(countCurrent);
+      localStorage.setItem("count", countArray.toString());
       var initialsCurrent = prompt("What are your initials?");
       var initialsArray = localStorage.getItem("initials");
       initialsArray = initialsArray ? initialsArray.split(',') : [];
       initialsArray.push(initialsCurrent);
       localStorage.setItem("initials", initialsArray.toString());
-      console.log(count);
+      console.log(countCurrent);
       console.log(initialsCurrent);
-    }}
-
+      console.log(countArray);
+      console.log(initialsArray);
+    }
+  }
 
 $(".start-button").click(function() {
     $("#time").html(0);
@@ -210,10 +211,16 @@ $(".start-button").click(function() {
 
 
 function toHighscoreList() {
-  /*  gameResult = {initials: initials, count: count};
+  var initials;
+  var count;
+    gameResult = {initials: initials, count: count};
     highscoreList.push(gameResult);
     localStorage.setItem("highscoreList", JSON.stringify(highscoreList));
-    highscoreList.sort(function(a,b) { return (b.count - a.count ) }); */
+    highscoreList.sort(function(a,b) { return (b.count - a.count ) });
+    var countArray = localStorage.getItem(count);
+    countArray = countArray ? countArray.split(',') : [];
+    countArray.push(countCurrent);
+    localStorage.setItem(count, countArray.toString());
     var initialsArray = localStorage.getItem(initials);
     initialsArray = initialsArray ? initialsArray.split(',') : [];
     initialsArray.push(initialsCurrent);
@@ -242,7 +249,7 @@ $("#score-3").text(highscoreList[2].score);
 localStorage.setItem(highscoreList);
 $("#high-score-list").text(highscoreList);
 */
-$('#scoretable').text(highscoreList[0].initials + " - score: "+ highscoreList[0].score);
+//$('#scoretable').text(highscoreList[0].initials + " - score: "+ highscoreList[0].score);
 //localStorage.getItem("hi")
 
 };
@@ -250,10 +257,12 @@ $('#scoretable').text(highscoreList[0].initials + " - score: "+ highscoreList[0]
 function fromHighscoreList(){
   var initials = localStorage.getItem("initials");
   var count = localStorage.getItem("count");
-  $("#scoretable").text(initials + ": " + count);
+  var initialsArray = initialsArray ? initialsArray.split(',') : [];
+  var countArray = countArray ? countArray.split(',') : [];;
+  for(n = 0; n < initialsArray.length; n++){
+  $("#scoretable").text(initialsArray[n] + ": " + countArray[n]);
+  }
 }
-
-
 
 
 
@@ -262,5 +271,4 @@ function fromHighscoreList(){
 document.getElementById("high-scores").addEventListener("click", function(){
   document.getElementById("scoretable").style.visibility = "visible";
   fromHighscoreList();
-  console.log(highscoreList);
     });
