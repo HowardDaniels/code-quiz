@@ -126,7 +126,7 @@ var questions = [
 
 $(".start-button").click(function() {
     $("#time").html(0);
-    setInterval(timeIt, 1000);
+    interval = setInterval(timeIt, 1000);
     timeIt();
 
     document.getElementById("start-button").style.visibility = "hidden";
@@ -258,7 +258,7 @@ function fromHighscoreList(){
   var initials = localStorage.getItem("initials");
   var count = localStorage.getItem("count");
   var initialsArray = initialsArray ? initialsArray.split(',') : [];
-  var countArray = countArray ? countArray.split(',') : [];;
+  var countArray = countArray ? countArray.split(',') : [];
   for(n = 0; n < initialsArray.length; n++){
   $("#scoretable").text(initialsArray[n] + ": " + countArray[n]);
   }
