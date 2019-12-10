@@ -110,7 +110,7 @@ var questions = [
       var countCurrent = count;
       var countArray = localStorage.getItem("count");
       countArray = countArray ? countArray.split(',') : [];
-      countArray.push(countCurrent);
+      countArray.push(countCurrent.toString());
       localStorage.setItem("count", countArray.toString());
       var initialsCurrent = prompt("What are your initials?");
       var initialsArray = localStorage.getItem("initials");
@@ -216,7 +216,7 @@ function toHighscoreList() {
     gameResult = {initials: initials, count: count};
     highscoreList.push(gameResult);
     localStorage.setItem("highscoreList", JSON.stringify(highscoreList));
-    highscoreList.sort(function(a,b) { return (b.count - a.count ) });
+    highscoreList = highscoreList.sort(function(a,b) { return (b.count - a.count ) });
     var countArray = localStorage.getItem(count);
     countArray = countArray ? countArray.split(',') : [];
     countArray.push(countCurrent);
@@ -255,13 +255,15 @@ $("#high-score-list").text(highscoreList);
 };
 
 function fromHighscoreList(){
+  /*
   var initials = localStorage.getItem("initials");
   var count = localStorage.getItem("count");
   var initialsArray = initialsArray ? initialsArray.split(',') : [];
   var countArray = countArray ? countArray.split(',') : [];
   for(n = 0; n < initialsArray.length; n++){
   $("#scoretable").text(initialsArray[n] + ": " + countArray[n]);
-  }
+  } */
+  $("#scoretable").text(highscoreList);
 }
 
 
