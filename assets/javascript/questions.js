@@ -255,6 +255,22 @@ $("#high-score-list").text(highscoreList);
 };
 
 function fromHighscoreList(){
+  for (i=0; i<countArray.length; i++){
+    newcount.push(parseInt(countArray[i]));
+};
+countArray = newcount;
+console.log(countArray);
+
+for (i= 0; i<countArray.length; i++){
+gameResult = {initials: initialsArray[i], count: countArray[i]};
+highScore.push(gameResult);
+}; 
+highScore.sort(function(a, b){return b.count - a.count});
+console.log(highScore);
+console.log(highScore[0]);
+for (i = 0; i<countArray.length; i++){
+$("#" + i.toString()).text(highScore[i].initials + ": " + highScore[i].count);
+}
   /*
   var initials = localStorage.getItem("initials");
   var count = localStorage.getItem("count");
