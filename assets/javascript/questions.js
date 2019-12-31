@@ -148,7 +148,6 @@ $(".start-button").click(function() {
         count -= 15;
         localStorage.setItem("count", count);
         timeLeft = count;
-        setInterval(interval);
         timeIt();
       }
       
@@ -165,7 +164,6 @@ $(".start-button").click(function() {
         count -= 15;
         localStorage.setItem("count", count);
         timeLeft = count;
-        setInterval(interval);
         timeIt();
       }
       
@@ -182,7 +180,6 @@ $(".start-button").click(function() {
         count -= 15;
         localStorage.setItem("count", count);
         timeLeft = count;
-        setInterval(interval);
         timeIt();
       }
       
@@ -202,7 +199,6 @@ $(".start-button").click(function() {
         count -= 15;
         localStorage.setItem("count", count);
         timeLeft = count;
-        setInterval(interval);
         timeIt();
       }
       
