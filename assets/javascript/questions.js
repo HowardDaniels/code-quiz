@@ -145,10 +145,10 @@ $(".start-button").click(function() {
 
       else if (questions[i].choices[0] != questions[i].answer){
         alert("That's not correct. Try again.");
-        clearInterval(interval);
         count -= 15;
         localStorage.setItem("count", count);
         timeLeft = count;
+        setInterval(interval);
         timeIt();
       }
       
@@ -162,10 +162,10 @@ $(".start-button").click(function() {
 
       else if (questions[i].choices[1] != questions[i].answer){
         alert("That's not correct. Try again.");
-        clearInterval(interval);
         count -= 15;
         localStorage.setItem("count", count);
         timeLeft = count;
+        setInterval(interval);
         timeIt();
       }
       
@@ -179,10 +179,10 @@ $(".start-button").click(function() {
 
       else if (questions[i].choices[2] != questions[i].answer){
         alert("That's not correct. Try again.");
-        clearInterval(interval);
         count -= 15;
         localStorage.setItem("count", count);
         timeLeft = count;
+        setInterval(interval);
         timeIt();
       }
       
@@ -199,10 +199,10 @@ $(".start-button").click(function() {
         /*count -=1;
         localStorage.setItem("count", count);
         score.textContent = count; */
-        clearInterval(interval);
         count -= 15;
         localStorage.setItem("count", count);
         timeLeft = count;
+        setInterval(interval);
         timeIt();
       }
       
