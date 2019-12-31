@@ -7,7 +7,7 @@ var counter = 0;
 var timeLeft = 150;
 var timer = document.querySelector("#time");
 var gameResult= {};
-var highscoreList;
+var highscoreList = [];
 var countCurrent;
 var initialsCurrent;
 localStorage.getItem(highscoreList);
@@ -121,8 +121,23 @@ var questions = [
       console.log(initialsCurrent);
       console.log(countArray);
       console.log(initialsArray);
+      for (i= 0; i<countArray.length; i++){
+        gameResult = {initials: initialsArray[i], count: countArray[i]};
+        highscoreList.push(gameResult);
+      }
+      highscoreList.sort(function(a, b){return b.count - a.count});
+console.log(highscoreList);
+console.log(highscoreList[0]);
+
+for (i = 0; i<countArray.length; i++){
+$("#" + i.toString()).text((i + 1) + ". " + highscoreList[i].initials + ": " + highscoreList[i].count);
+}
     }
   }
+    /*
+$("#scoretable").text(highscoreList[0].initials + ": " + highscoreList[0].count);
+    } */
+  
 
 $(".start-button").click(function() {
     $("#time").html(0);
@@ -209,7 +224,7 @@ $(".start-button").click(function() {
 function toHighscoreList() {
   var initials;
   var count;
-    gameResult = {initials: initials, count: count};
+    var gameResult = {initials: initials, count: count};
     highscoreList.push(gameResult);
     localStorage.setItem("highscoreList", JSON.stringify(highscoreList));
     highscoreList = highscoreList.sort(function(a,b) { return (b.count - a.count ) });
@@ -249,7 +264,7 @@ $("#high-score-list").text(highscoreList);
 //localStorage.getItem("hi")
 
 };
-
+/*
 function fromHighscoreList(){
   for (i=0; i<countArray.length; i++){
     newcount.push(parseInt(countArray[i]));
@@ -274,15 +289,14 @@ $("#" + i.toString()).text(highScore[i].initials + ": " + highScore[i].count);
   var countArray = countArray ? countArray.split(',') : [];
   for(n = 0; n < initialsArray.length; n++){
   $("#scoretable").text(initialsArray[n] + ": " + countArray[n]);
-  } */
+  } */ /*
   $("#scoretable").text(highscoreList);
 }
-
-
+*/
 
 
 
 document.getElementById("high-scores").addEventListener("click", function(){
   document.getElementById("scoretable").style.visibility = "visible";
-  fromHighscoreList();
+  toHighscoreList();
     });
